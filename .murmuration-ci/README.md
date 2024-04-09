@@ -1,5 +1,5 @@
 ## Introduction
-This purpose of this project is to update the continuous integration pipelien for an open source project located at (https://github.com/facebookresearch/ParlAI).
+This purpose of this project is to update the continuous integration pipeline for an open source project located at (https://github.com/facebookresearch/ParlAI).
 The CI pipeline is updated by integrating Terraform configuration files within CircleCI workflow to build and deploy a static website for hosting in an Amazon S3 bucket. CloudFront was 
 configured for routing and CDN capabilities, All terraform files are found in the terraform folder including addtional configurations for DNS vis AWS route53 and for Certificate Manager.  
 The build was tested and ran successfully. Please see the additional configurations within update-pipeline branch.
@@ -25,11 +25,11 @@ CircleCI is a continuous integration and continuous delivery (CI/CD) platform th
 GitHub stores the code and manages versioning
 
 ## Initial exploration:
-Looked at ECR with Docker. Some issues, disk size.
+I first attempted a workflow that used the Dockerfile to build a docker image and push the image to Amazon ECR, the goal was to containerize using ECS. The main issue faced was disk size, I used GitHub Actions for the workflow and the runners given consistently ran out of disk space due to the large size (over 42 megabyte) of the image. I therefore changed plans and used CircleCI and a S3 bucket for hosting. 
 First, attempts to build website on local machine. Had issues with dependencies, primarily PyTorch during the building of /docs.
 Tested build within Circle CI pipeline, built successfully. Noted addiitional torch dependency steps.
 
-Created terraform to create an S3 bucket, enable hosting, add built files, create CloudFront.
+Configured terraform to create an S3 bucket, enable hosting, add built files, also  CloudFront.
 (Also created code for route53 and certificates, but went with cloudfront defaults for this demo rather than an at-cost domain)
 
 Tested terraform in its own pipeline. Successfully accessed website through Cloudfront
