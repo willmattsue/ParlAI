@@ -4,6 +4,8 @@ The CI pipeline is updated by integrating Terraform configuration files within C
 configured for routing and CDN capabilities, All terraform files are found in the terraform folder including addtional configurations for DNS vis AWS route53 and for Certificate Manager.  
 The build was tested and ran successfully. Please see the additional configurations within update-pipeline branch.
 
+## Prerequisites
+Please configure AWS and GitHub credentials within CircleCI platform.  
 
 ## Architecture
 As the site, once built, it's static content being successfully hosted on S3, I decided to build upon this by adding routing and CDN capabilities via CloudFront.
