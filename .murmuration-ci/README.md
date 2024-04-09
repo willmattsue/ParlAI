@@ -19,6 +19,10 @@ graph TD;
     Repo--build on commit-->CI;
     CI--pipeline builds website, pushes to bucket-->S3;
 ```
+### Other Components
+Terraform is one of the Infrastructure as Code (IaC) tools developed by HashiCorp that is used in this project to build and manage the AWS infrastructure.
+CircleCI is a continuous integration and continuous delivery (CI/CD) platform that integrates with GitHub automates the build, test, and deployment of the static Website
+GitHub stores the code and manages versioning
 
 ## Initial exploration:
 Looked at ECR with Docker. Some issues, disk size.
