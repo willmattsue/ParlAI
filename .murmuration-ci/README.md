@@ -2,7 +2,7 @@
 This purpose of this project is to update the continuous integration pipelien for an open source project located at (https://github.com/facebookresearch/ParlAI).
 The CI pipeline is updated by integrating Terraform configuration files within CircleCI workflow to build and deploy a static website for hosting in an Amazon S3 bucket. CloudFront was 
 configured for routing and CDN capabilities, All terraform files are found in the terraform folder including addtional configurations for DNS vis AWS route53 and for Certificate Manager.  
-The build was tested and ran successfully.
+The build was tested and ran successfully. Please see the additional configurations within update-pipeline branch.
 
 
 ## Architecture
